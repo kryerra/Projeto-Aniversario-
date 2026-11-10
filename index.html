@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Uma surpresa especial de aniversário para Milena.">
+    <title>Para uma menina especial</title>
+    <link rel="preload" href="fontes/Roboto-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="lock-screen" id="lock-screen" aria-label="Terminal de acesso">
+        <div class="terminal-window">
+          <div class="terminal-titlebar">
+            <span class="terminal-window-title" aria-hidden="true"></span>
+            <span class="terminal-window-controls" aria-hidden="true">
+              <span>−</span>
+              <span>□</span>
+              <span>×</span>
+            </span>
+          </div>
+          <div class="terminal-content">
+            <div class="terminal-output" aria-hidden="true">
+              <p>Microsoft Windows [versão 10.0.19045.0000]</p>
+              <p>(c) Microsoft Corporation. Todos os direitos reservados.</p>
+              <p class="terminal-spacer"></p>
+              <p>Digite projetor.exe para iniciar o projetor.</p>
+            </div>
+            <div class="startup-loader">
+              <p class="startup-loading" id="startup-loading" role="status" aria-live="polite">Preparando os arquivos...</p>
+              <progress id="startup-progress" max="1" value="0" aria-label="Progresso do carregamento"></progress>
+              <p class="startup-hint">Recarregue a pagina se o carregamento travar</p>
+            </div>
+            <form id="password-form" novalidate>
+              <label class="terminal-prompt" for="projector-command">C:\Users\Milena\25/10&gt;</label>
+              <div class="input-wrap">
+                <input
+                  id="projector-command"
+                  name="command"
+                  type="text"
+                  placeholder=""
+                  autocomplete="off"
+                  disabled
+                  autocapitalize="none"
+                  aria-label="Comando do terminal"
+                  spellcheck="false"
+                >
+                <span class="terminal-caret" aria-hidden="true">█</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="birthday" id="birthday" aria-labelledby="birthday-title" hidden>
+        <h1 class="visually-hidden" id="birthday-title" tabindex="-1"></h1>
+        <p class="music-status visually-hidden" id="music-status" aria-live="polite"></p>
+        <p class="fullscreen-status" id="fullscreen-status" role="status" aria-live="polite" hidden></p>
+        <section class="memories" id="memories" aria-label="Galeria de fotos e mensagens" hidden>
+          <div class="photo-frame">
+            <div class="film-start">
+              <div class="film-camera" aria-hidden="true">
+                <span class="film-reel film-reel-left"></span>
+                <span class="film-reel film-reel-right"></span>
+                <span class="film-camera-body">
+                  <span class="film-camera-lens"></span>
+                </span>
+              </div>
+              <button class="projection-play-button" id="projection-play-button" type="button" aria-label="Começar projeção">
+                <span aria-hidden="true">▶</span>
+              </button>
+              <span class="film-start-status" aria-hidden="true">APERTE PLAY PARA COMEÇAR</span>
+            </div>
+            <section class="second-group-terminal" id="second-group-terminal" aria-label="Terminal de continuação" hidden>
+              <div class="terminal-window">
+                <div class="terminal-titlebar">
+                  <span class="terminal-window-title" aria-hidden="true"></span>
+                  <span class="terminal-window-controls" aria-hidden="true">
+                    <span>−</span>
+                    <span>□</span>
+                    <span>×</span>
+                  </span>
+                </div>
+                <div class="terminal-content">
+                  <div class="terminal-output" aria-hidden="true">
+                    <p>Microsoft Windows [versão 10.0.19045.0000]</p>
+                    <p>(c) Microsoft Corporation. Todos os direitos reservados.</p>
+                    <p class="terminal-spacer"></p>
+                    <p>C:\Users\Milena\25/10&gt; projetor.exe</p>
+                    <p>Primeira parte concluída.</p>
+                    <p>Digite familia.exe para continuar.</p>
+                  </div>
+                  <form id="second-group-command-form" autocomplete="off">
+                    <label class="terminal-prompt" for="second-group-command">C:\Users\Milena\25/10&gt;</label>
+                    <div class="input-wrap">
+                      <input
+                        id="second-group-command"
+                        name="command"
+                        type="text"
+                        autocomplete="off"
+                        autocapitalize="none"
+                        spellcheck="false"
+                        aria-label="Comando do terminal"
+                      >
+                      <span class="terminal-caret" aria-hidden="true">█</span>
+                    </div>
+                  </form>
+                  <p class="terminal-error" id="second-group-command-error" role="status" hidden></p>
+                </div>
+              </div>
+            </section>
+            <div class="photo-placeholder" id="photo-placeholder" aria-hidden="true">
+              <span class="placeholder-sparkle">✦</span>
+              <span class="placeholder-heart">♡</span>
+              <span class="placeholder-text" id="placeholder-text">Foto indisponível</span>
+            </div>
+            <div class="media-layer" id="media-layer" hidden>
+              <img class="memory-photo" id="memory-photo" alt="">
+              <video class="memory-photo memory-video" id="memory-video" muted playsinline loop preload="auto" hidden></video>
+            </div>
+            <div class="photo-snapshot-flash" aria-hidden="true"></div>
+            <div class="photo-shade"></div>
+            <div class="photo-reveal" id="photo-reveal" aria-hidden="true">
+              <div class="reveal-copy">
+                <p class="reveal-year" id="reveal-year">ANO</p>
+                <h2 id="reveal-title"></h2>
+                <p class="reveal-message" id="reveal-message"></p>
+              </div>
+            </div>
+            <div class="slide-caption" aria-live="polite">
+              <p class="slide-year" id="slide-year"></p>
+              <p class="slide-message" id="slide-message"></p>
+              <h2 id="slide-title"></h2>
+              <p class="author-subtitle" id="slide-subtitle" hidden></p>
+            </div>
+            <div class="ending-content" id="ending-content" hidden>
+              <p class="ending-message" id="ending-message" aria-live="polite"></p>
+            </div>
+          </div>
+          <section class="family-slideshow" id="family-slideshow" aria-label="Homenagens em vídeo da família" hidden></section>
+        </section>
+
+        <audio id="birthday-music" preload="none"></audio>
+        <audio id="ending-music" src="assets/feliz aniversario.mp3" preload="none"></audio>
+        <audio id="family-music" preload="none"></audio>
+        <audio class="ambient-sound-audio" id="wind-sound" src="assets/som de vento.mp3" preload="none" loop aria-hidden="true"></audio>
+        <audio id="slideshow-start-sound" src="assets/som slideshow.mp3" preload="none"></audio>
+        <audio id="slideshow-loop-sound" src="assets/loop slide.mp3" preload="none"></audio>
+        <audio id="slideshow-loop-backup-sound" src="assets/loop slide.mp3" preload="none"></audio>
+        <audio id="slide-change-sound" src="assets/troca slide.mp3" preload="none"></audio>
+        <audio id="slideshow-end-sound" src="assets/fim do slideshow.mp3" preload="none"></audio>
+        <audio id="flash-sound" src="assets/FLASH.mp3" preload="none"></audio>
+      </section>
+
+    </main>
+  </body>
+</html>
